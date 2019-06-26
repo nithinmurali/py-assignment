@@ -4,7 +4,7 @@ from django.contrib.postgres.fields import ArrayField
 
 class Book(models.Model):
     name = models.CharField(max_length=1000)
-    isbn = models.CharField(max_length=14)
+    isbn = models.CharField(max_length=26)
     authors = ArrayField(models.CharField(max_length=1000))
     number_of_pages = models.PositiveIntegerField()
     publisher = models.CharField(max_length=1000)
