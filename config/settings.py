@@ -34,7 +34,8 @@ THIRD_PARTY_APPS = [
 ]
 
 LOCAL_APPS = [
-    'books'
+    'books',
+    'external'
 ]
 
 INSTALLED_APPS = THIRD_PARTY_APPS + LOCAL_APPS
@@ -122,6 +123,16 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# Use nose to run all tests
+TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+
+NOSE_ARGS = [
+    '--nocapture',
+    '--nologcapture',
+    '--with-coverage',
+    '--cover-package=books,external',
+]
 
 
 # Library configs
