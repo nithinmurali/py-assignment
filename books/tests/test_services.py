@@ -4,6 +4,7 @@ import books.services.core as book_services
 from datetime import datetime
 from books.models import Book
 from rest_framework.exceptions import ValidationError
+from common.responses import BadInputError
 
 
 class TestBookCreate(TestCase):
@@ -16,7 +17,7 @@ class TestBookCreate(TestCase):
         book.delete()
 
     def test_authors_not_list(self):
-        with self.assertRaises(ValidationError):
+        with self.assertRaises(BadInputError):
             book = book_services.create_book(name="test name", isbn='123-1234567890', authors="", number_of_pages=10,
                                              publisher="test p", country="country", release_date=datetime.now().date())
             book.delete()
@@ -97,5 +98,5 @@ class TestBookUpdate(TestCase):
         self.assertEquals(self.book1.authors, ['new author'])
 
     def test_book_dosent_exists(self):
-        with self.assertRaises(Book.DoesNotExist):
+        with self.assertRaises(BadInputError):
             book_services.update_book('cddae247-6902-4627-8066-df9a8e0f1b5c', name='new name')
