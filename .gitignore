@@ -29,7 +29,6 @@ logs
 *.sqlite3
 media/
 static/
-**/migrations/*
 deploy/
 
 # pyenv
