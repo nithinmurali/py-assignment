@@ -95,3 +95,7 @@ class TestBookUpdate(TestCase):
         book_services.update_book(self.book1.id, authors=['new author'])
         self.book1.refresh_from_db()
         self.assertEquals(self.book1.authors, ['new author'])
+
+    def test_book_dosent_exists(self):
+        with self.assertRaises(Book.DoesNotExist):
+            book_services.update_book('cddae247-6902-4627-8066-df9a8e0f1b5c', name='new name')
