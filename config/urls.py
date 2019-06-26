@@ -16,8 +16,8 @@ Including another URLconf
 from django.conf import settings
 from django.urls import path, include
 
-versioned_pre_str = "api/"
-pre_str = "api/" + settings.API_VERSION + "/"
+pre_str = "api/"
+versioned_pre_str = "api/" + settings.API_VERSION + "/"
 
 urlpatterns = [
     path(versioned_pre_str, include('books.urls'))
