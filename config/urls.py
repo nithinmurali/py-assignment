@@ -20,5 +20,6 @@ pre_str = "api/"
 versioned_pre_str = "api/" + settings.API_VERSION + "/"
 
 urlpatterns = [
-    path(versioned_pre_str, include('books.urls'))
+    path(versioned_pre_str, include('books.urls')),
+    path(versioned_pre_str, include('external.urls'))
 ]

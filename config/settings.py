@@ -143,3 +143,5 @@ REST_FRAMEWORK = {
     ),
     'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend',),
 }
+
+FIRE_AND_ICE_URL = 'https://www.anapioficeandfire.com/api/books'

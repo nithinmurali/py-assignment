@@ -2,7 +2,7 @@ from unittest.mock import Mock, patch
 from django.test import TestCase
 from common.responses import BadInputError, ServerError
 
-from external.services.external import get_external_books, get_external_books_formatted
+from external.services.external import get_external_books, get_external_books_serialized
 
 
 class ExternalBooksTestCase(TestCase):
@@ -76,7 +76,7 @@ class ExternalBooksFormattedTestCase(TestCase):
         # self.mock_get.return_value = Mock()
         self.mock_get.return_value = books
 
-        response = get_external_books_formatted("A Game of Thrones")
-        response_book = response[0]
+        serializer = get_external_books_serialized("A Game of Thrones")
+        response_book = serializer.validated_data[0]
         self.assertEqual(response_book["name"], "A Game of Thrones")
         self.assertEqual(response_book["number_of_pages"], 694)
