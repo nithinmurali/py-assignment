@@ -19,12 +19,21 @@ def data_response(code, data, status="success", message=None):
         }, status=code)
 
 
-class BadInputError(APIException):
-    """Readers error class"""
-    def __init__(self, msg):
+class BaseError(APIException):
+    def __init__(self, msg, status_code):
         APIException.__init__(self, msg)
-        self.status_code = HTTP_400_BAD_REQUEST
-        self.detail = {"status": "failure", 'status_code': 400, 'message': msg, "data": []}
+        self.status_code = status_code
+        self.detail = {"status": "failure", 'status_code': status_code, 'message': msg, "data": []}
 
     def __str__(self):
         return str(self.detail)
+
+
+class BadInputError(BaseError):
+    def __init__(self, msg):
+        super().__init__(msg, 400)
+
+
+class ServerError(APIException):
+    def __init__(self, msg):
+        super().__init__(msg, 500)
