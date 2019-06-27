@@ -44,7 +44,7 @@ class ExternalBooksTestCase(TestCase):
         self.mock_get.status_code = 500
 
         with self.assertRaises(ServerError):
-            response = get_external_books("A Game of Thrones")
+            get_external_books("A Game of Thrones")
 
 
 class ExternalBooksFormattedTestCase(TestCase):
