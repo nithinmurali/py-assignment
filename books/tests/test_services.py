@@ -46,8 +46,8 @@ class TestGetBook(TestCase):
 
     def test_get_book(self):
         book = book_services.get_a_book(self.book1.id)
-        self.assertEquals(book.id, self.book1.id)
-        self.assertEquals(book.name, self.book1.name)
+        self.assertEqual(book.id, self.book1.id)
+        self.assertEqual(book.name, self.book1.name)
 
 
 class TestGetAllBook(TestCase):
@@ -64,7 +64,7 @@ class TestGetAllBook(TestCase):
 
     def test_get_books(self):
         books = book_services.get_books()
-        self.assertEquals(len(books), self.num_books)
+        self.assertEqual(len(books), self.num_books)
         self.assertNotEqual(books[0].id, books[1].id)
         self.assertNotEqual(books[0].name, books[1].name)
 
@@ -90,12 +90,12 @@ class TestBookUpdate(TestCase):
     def test_update_name(self):
         book_services.update_book(self.book1.id, name="new name")
         self.book1.refresh_from_db()
-        self.assertEquals(self.book1.name, "new name")
+        self.assertEqual(self.book1.name, "new name")
 
     def test_authors_update(self):
         book_services.update_book(self.book1.id, authors=['new author'])
         self.book1.refresh_from_db()
-        self.assertEquals(self.book1.authors, ['new author'])
+        self.assertEqual(self.book1.authors, ['new author'])
 
     def test_book_dosent_exists(self):
         with self.assertRaises(BadInputError):

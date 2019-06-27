@@ -67,5 +67,5 @@ class UpdateBookTestCase(APITestCase):
         response = self.client.patch(self.get_url, data=data, format='json')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         book = Book.objects.get(id=self.book_model.id)
-        self.assertEquals(book.name, "random test name")
+        self.assertEqual(book.name, "random test name")
 
