@@ -19,13 +19,11 @@ Install all the requirements (preferably in a virtual env)
 pip install -r requirements.txt
 ```
 
-Then create the configuration file
+Then create the configuration file (`.env`) and fill values.
 
 ```
 cp sample.env .env
 ```
-
-Now put the configuration values in `.env` file.
 
 Now apply the migrations and run the server.
 
