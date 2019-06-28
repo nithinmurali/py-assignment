@@ -10,7 +10,7 @@ python 3.6+
 
 Clone the repository
 ```
-git clone git@github.com:nithinmurali/stakx-assignment.git
+git clone git@github.com:nithinmurali/py-assignment.git
 cd stakx-assignment
 ```
 
