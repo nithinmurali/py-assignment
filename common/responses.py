@@ -25,9 +25,6 @@ class BaseError(APIException):
         self.status_code = status_code
         self.detail = {"status": "failure", 'status_code': status_code, 'message': msg, "data": []}
 
-    def __str__(self):
-        return str(self.detail)
-
 
 class BadInputError(BaseError):
     def __init__(self, msg):

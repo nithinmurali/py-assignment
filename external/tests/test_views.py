@@ -25,5 +25,6 @@ class GetExternalBookTestCase(APITestCase):
     def test_get_book(self):
         response = self.client.get(self.get_url + "?name=" + self.book_name_encoded, format='json')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(response.json()['data']), 1)
         self.assertEqual(response.json()['data'][0]['isbn'], str(self.book['isbn']))
         self.assertEqual(response.json()['data'][0]['name'], self.book['name'])
