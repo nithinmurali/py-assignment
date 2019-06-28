@@ -1,4 +1,4 @@
-# Stakx python assignment
+# Python assignment
 
 [![codecov](https://codecov.io/gh/nithinmurali/py-assignment/branch/master/graph/badge.svg?token=lvSyyYICy3)](https://codecov.io/gh/nithinmurali/py-assignment)
 
