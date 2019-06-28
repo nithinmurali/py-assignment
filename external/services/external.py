@@ -6,7 +6,7 @@ from django.conf import settings
 
 
 def get_external_books(name):
-    response = requests.get(settings.FIRE_AND_ICE_URL, params={'q': quote(name)})
+    response = requests.get(settings.FIRE_AND_ICE_URL, params={'name': quote(name)})
     if response.status_code == 200:
         return response.json()
     else:

@@ -5,6 +5,6 @@ from rest_framework.decorators import api_view
 
 @api_view(['GET'])
 def api_get_external_books(request, format=None):
-    book_name = request.query_params.get('book', '')
+    book_name = request.query_params.get('name', '')
     books = get_external_books_serialized(book_name)
     return data_response(200, data=books.data)
